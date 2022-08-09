@@ -1,0 +1,63 @@
+<div class='container'>
+<div class='contact'>
+<%= form_with(model: product, :html => {class: "php-email-form p-3 p-md-4"}) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class='form-group'>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+</div>
+
+<div class='form-group'>
+  <div class="field">
+    <%= form.label :cuisine %>
+    <%= form.text_field :cuisine, class: 'form-control' %>
+  </div>
+</div>
+
+<div class='form-group'>
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, class: 'form-control' %>
+  </div>
+</div>
+
+<div class='form-group'>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, class: 'form-control' %>
+  </div>
+</div>
+
+<div class='form-group'>
+  <div class="field">
+    <%= form.label :ingredients %>
+    <%= form.text_field :ingredients, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="field">
+  <%= form.label :product_image %>
+  <%= form.file_field :product_image %>
+</div>
+
+
+  <div class="actions">
+    <button type='submit' class="btn-book-a-table">Create Product</button>
+  </div>
+<% end %>
+</div>
+</div>

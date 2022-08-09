@@ -1,0 +1,32 @@
+<h1 style="text-align: center;" >Admin#login</h1>
+
+<div class='container'>
+    <div class='contact'>
+    <%= form_with(:html => { class: "php-email-form p-3 p-md-4" }) do |form| %>
+
+<div class="menu-item-row">
+  <div class="col-xl-6 form-group">
+        <div class="field">
+            <%= form.text_field :username, class: 'form-control', placeholder: 'Username'  %>
+        </div>
+     </div>
+
+    <div class="col-xl-6 form-group">
+        <div class="field">
+            <%= form.password_field :password, class: 'form-control',  placeholder: 'password'  %>
+        </div>
+   </div>
+</div>
+ 
+    <div class="field" style="display: flex; align-items: center;">
+        <%= form.label "Remeber me" %> 
+        <%= form.check_box :remember_me %> <br />
+    </div>
+   
+
+    <div class="actions">
+        <button type='submit' class="btn-book-a-table">Login</button>
+    </div>
+    <% end %>
+    </div>
+</div>

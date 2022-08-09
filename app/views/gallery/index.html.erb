@@ -1,0 +1,34 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <section id="menu" class="menu">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header" style="display: flex; justify-content: space-between;">
+            <p>Check Our <span>Yummy Menu</span></p>
+          </div>
+        <div class="tab-content">
+          <div class="tab-pane fade active show" id="menu-starters">
+              <div class="tab-header text-center" style="text-align: center;">
+                <p>Menu</p>
+                <h3 style="margin: 10px;">Starters</h3>
+              </div>
+                <div class="menu-item-row gy-5">
+                <% @food_items.each do |food_item| %>
+                    <div class="col-lg-4 menu-item" style="flex: 0 0 auto; width: 30%;">
+                      <a href="#" class="glightbox">
+                        <%= image_tag food_item.product_image, class: 'menu-img img-fluid', height: '300', width: '300' %>
+                      </a>
+                      <h4><%= food_item.name %><span style="font-size: 15px;"> (<%= food_item.cuisine %>)</span></h4>
+                      <p class="ingredients">
+                        <%= food_item.ingredients %>
+                      </p>
+                      <p class="price">
+                        $<%= food_item.price %>
+                        <%= button_to 'Add to Cart', line_items_path(product_id: food_item), class: 'btn-book-a-table' %>
+                      </p>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+        </div>
+  </section>
+</header>

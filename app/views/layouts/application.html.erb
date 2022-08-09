@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resto</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between"
+    style="display: flex;">
+
+      <a href="/home" class="logo d-flex align-items-center me-auto me-lg-0">
+        <h1>Yummy<span>.</span></h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#chefs">Chefs</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">D eep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <%# <a class="btn-book-a-table" href="#book-a-table">Book a Table</a> %>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+
+
+
+      <p class="navbar-text float-right">
+      <% if session[:admin] %>
+        <%= link_to "Admin Log out", admin_logout_path, method: "destroy", class: "btn-book-a-table"  %> |
+      <% else %>
+        <%= link_to "Admin Log In", admin_login_path, method: "create", class: "btn-book-a-table"  %> |
+      <% end %>
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <br>
+        <br>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn-book-a-table' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link btn-book-a-table'  %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link btn-book-a-table'  %>
+      <% end %>
+      </p>
+      </div>  
+  </header>
+    <%= yield %>
+   
+  </body>
+</html>
