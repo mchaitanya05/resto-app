@@ -8,7 +8,6 @@ class Cart < ApplicationRecord
         else
             current_item = line_items.build(product_id: product.id) 
         end
-        puts (current_item)
         current_item
     end
 

@@ -1,0 +1,10 @@
+
+<%= form_with(model: @order, :html => {class: "php-email-form p-3 p-md-4"}) do |form| %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+data-key="pk_test_51LUvqzSANg4ty6yZnEtf5gVhJtHs4wHInArInXSCpxDZjyPTpVGD2uHaDARTdYNvHbKlXwQSw4NuUldOvBuJuS6w000qnWHinY"
+data-description="Monthly subscription"
+data-amount="500"
+data-locale="auto"></script>
+<% end %>
+
+<%= link_to 'Create Order', orders_path, method:'create', class: 'btn-book-a-table' %>
