@@ -8,6 +8,7 @@ gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
 gem 'devise'
 gem 'pg'
 gem 'stripe'
+gem 'rubocop', require: false
 # gem 'image_processing'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'

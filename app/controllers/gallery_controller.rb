@@ -4,5 +4,6 @@ class GalleryController < ApplicationController
   end
 
   def search
+    @food_items = Product.where("name like ?", "%#{params[:search]}%");
   end
 end

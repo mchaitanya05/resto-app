@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'gallery/index'
   get 'gallery/search'
   resources :products
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   get 'admin/login'
   post   'admin/login'   => 'admin#create'
   post 'admin/logout' => 'admin#destroy'
